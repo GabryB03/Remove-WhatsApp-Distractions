@@ -19,7 +19,7 @@
     {
         try
         {
-            document.querySelector("img[src='/img/native-desktop-hero_a22b846aefcd2de817624e95873b2064.png']").parentElement.parentElement.remove();
+            document.querySelector("img[src='https://static.whatsapp.net/rsrc.php/v3/y6/r/wa669aeJeom.png']").parentElement.parentElement.remove();
         }
         catch (e)
         {
@@ -37,7 +37,7 @@
 
         try
         {
-            document.querySelector("div[title='Casella di testo per la ricerca']").parentElement.parentElement.parentElement.parentElement.remove();
+            document.querySelector("div[aria-label='Casella di testo per la ricerca']").parentElement.parentElement.parentElement.parentElement.remove();
         }
         catch (e)
         {
@@ -50,7 +50,49 @@
         }
         catch (e)
         {
-            
+
+        }
+
+        try
+        {
+
+            var element = document.querySelector("div[class='']");
+
+            if (element.innerText == 'Tutte')
+            {
+                 document.querySelector("div[class='']").parentElement.parentElement.parentElement.remove();
+            }
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("div[title='Dettagli profilo']").parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("button[aria-label='Cerca o inizia una nuova chat']").parentElement.parentElement.parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("button[aria-label='Lista delle chat']").parentElement.parentElement.parentElement.remove();
+        }
+        catch (e)
+        {
+
         }
 
         setTimeout(async function()
