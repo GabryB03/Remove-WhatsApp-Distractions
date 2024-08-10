@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WhatsApp Remove Distractions
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      2.0
 // @description  Remove all the WhatsApp distractions to get concentrated on what's really important
 // @author       GabryB03
 // @match        https://www.whatsapp.com/*
@@ -89,6 +89,33 @@
         try
         {
             document.querySelector("button[aria-label='Lista delle chat']").parentElement.parentElement.parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("span[data-icon='chats-filled']").parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("span[data-icon='new-chat-outline']").parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("div[title='Info messaggio']").parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
         }
         catch (e)
         {
