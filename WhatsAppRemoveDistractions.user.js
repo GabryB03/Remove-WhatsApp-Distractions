@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WhatsApp Remove Distractions
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      4.0
 // @description  Remove all the WhatsApp distractions to get concentrated on what's really important
 // @author       GabryB03
 // @match        https://www.whatsapp.com/*
@@ -139,6 +139,24 @@
             {
                 elements[i].remove();
             }
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.title = "WhatsApp";
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("button[aria-pressed=false]").parentElement.remove();
         }
         catch (e)
         {
