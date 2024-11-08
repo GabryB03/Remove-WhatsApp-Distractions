@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WhatsApp Remove Distractions
 // @namespace    http://tampermonkey.net/
-// @version      4.0
+// @version      5.0
 // @description  Remove all the WhatsApp distractions to get concentrated on what's really important
 // @author       GabryB03
 // @match        https://www.whatsapp.com/*
@@ -12,6 +12,34 @@
 // @downloadURL  https://github.com/GabryB03/Remove-WhatsApp-Distractions/raw/main/WhatsAppRemoveDistractions.user.js
 // @grant        none
 // ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Funzione per applicare il CSS personalizzato
+    const addCustomStyle = () => {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            /* Background e testo generale */
+            body, .landing-header, .landing-wrapper, .landing-window {
+                background-color: #000000 !important; /* Sfondo nero per tutta la schermata */
+                color: #ffffff !important; /* Testo bianco */
+            }
+        `;
+        document.head.appendChild(style);
+    };
+
+    // Ricarica il CSS quando si aggiorna la pagina
+    const observer = new MutationObserver(() => {
+        addCustomStyle();
+    });
+
+    // Inizia a osservare cambiamenti nella struttura della pagina
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Applica lo stile all'inizio
+    addCustomStyle();
+})();
 
 (function()
 {
@@ -157,6 +185,68 @@
         try
         {
             document.querySelector("button[aria-pressed=false]").parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            var theElementsToRemove = document.querySelectorAll("[style='visibility: visible;']");
+
+            for (var j = 0; j < theElementsToRemove.length; j++)
+            {
+                theElementsToRemove[j].remove();
+            }
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("div[style='width: 82px; height: 82px;']").parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            document.querySelector("span[title='Gabriele']").parentElement.remove();
+        }
+        catch (e)
+        {
+
+        }
+
+        try
+        {
+            var theElementsToRemove = document.querySelectorAll("span[data-icon='default-group']");
+
+            for (var j = 0; j < theElementsToRemove.length; j++)
+            {
+                theElementsToRemove[j].remove();
+            }
+
+        }
+        catch (e)
+        {
+
+        }
+
+                try
+        {
+            var theElementsToRemove = document.querySelectorAll("span[data-icon='default-user']");
+
+            for (var j = 0; j < theElementsToRemove.length; j++)
+            {
+                theElementsToRemove[j].remove();
+            }
+
         }
         catch (e)
         {
